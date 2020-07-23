@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create
-    </title>
-</head>
-<body>
-    <form method="POST" action="/todos/create">
-        @csrf
-    <x-alert/>
-    <h2>Enter your information</h2>
-        <input type="text" name="title">
-        <input type="submit" value="Entrer">
+@extends('todos.layout')
 
-    </form>
-</body>
-</html>
+@section('content')
+<form method="POST" action="/todos/create">
+    @csrf
+<x-alert/>
+<h2>Enter your information</h2>
+    <input type="text" name="title" class="py-2 px-2 border-rounded" />
+    <input type="submit" value="Entrer"  class="py-2 px-2 border-rounded">
+
+</form>
+    
+@endsection

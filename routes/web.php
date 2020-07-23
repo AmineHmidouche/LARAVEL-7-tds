@@ -23,7 +23,7 @@ Route::get('/user', 'UserController@HomeUser');
 Route::post('/upload','UserController@UserAvatar');
 
 //ToDolist Routing Controller
-Route::get('/todos', 'TodoController@index');
+Route::get('/todos/index', 'TodoController@index');
 
 Route::get('/todos/create', 'TodoController@create');
 Route::post('/todos/create', 'TodoController@store');

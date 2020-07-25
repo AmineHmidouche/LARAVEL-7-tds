@@ -1,10 +1,10 @@
 @extends('todos.layout')
 
 @section('content')
-  <div class="flex justify-center">
-    <h1 class="text-2xl">All Todo List</h1>
+  <div class="flex justify-center border-b pb-4">
+    <h1 class="text-2xl ">All Todo List</h1>
     
-    <a href="/todos/create" class="mx-5 py-1 px-1  bg-blue-400 cursor-pointer text-whithe rounded">Creat New</a>
+    <a href="/todos/create" class="mx-5 py-1 px-1 p-4  bg-blue-400 cursor-pointer text-whithe rounded">Creat New</a>
   </div>
 <x-alert  />
 <ul class="my-5">

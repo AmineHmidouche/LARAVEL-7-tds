@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 //use Illuminate\Support\Facades\DB;
 //use Illuminate\Http\Request;
 use App\Http\Requests\TodoCreateRequest;
-//use App\User;
+
+
+
+//use App\User; 
 use App\Todoo;
 use Illuminate\Support\Facades\Validator;
 class TodoController extends Controller
@@ -36,9 +39,18 @@ class TodoController extends Controller
    
     }
 
-    public function edit($id){
-        $todo = Todoo::find($id);
+    public function edit(Todoo $todo){
+       
     
         return view('todos.edite',compact('todo'));
     }
+
+public function update( TodoCreateRequest $request , Todoo $todo){
+//dd($request->all());
+$todo->update(['title' => $request->title]);
+return redirect(route('todo.index'))->with('message','Updated successfuly');
 }
+
+}
+
+

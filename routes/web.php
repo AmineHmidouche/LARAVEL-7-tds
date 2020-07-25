@@ -23,11 +23,12 @@ Route::get('/user', 'UserController@HomeUser');
 Route::post('/upload','UserController@UserAvatar');
 
 //ToDolist Routing Controller
-Route::get('/todos/index', 'TodoController@index');
+Route::get('/todos/index', 'TodoController@index')->name('todo.index');;
 
 Route::get('/todos/create', 'TodoController@create');
 Route::post('/todos/create', 'TodoController@store');
-Route::get('/todos/{id}/edite', 'TodoController@edit');
+Route::get('/todos/{todo}/edite', 'TodoController@edit');
+Route::patch('/todos/{todo}/update', 'TodoController@update')->name('todo.update');
 
 Auth::routes();
 

@@ -57,6 +57,12 @@ public function complete(Todoo $todo)
     return redirect()->back()->with('message', 'Task Marked as completed!');
 }
 
+public function incomplete(Todoo $todo)
+{
+    $todo->update(['completed' => false]);
+    return redirect()->back()->with('message', 'Task Marked as Incompleted!');
+}
+
 }
 
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Todoo extends Model
 {
-    protected $fillable = ['title'];
+    protected $fillable = ['title','completed'];
         
    
 }

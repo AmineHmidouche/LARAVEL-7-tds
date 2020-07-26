@@ -8,10 +8,39 @@
   </div>
 <x-alert  />
 <ul class="my-5">
-    @foreach ($todos as $todo)
-   <li class="flex justify-center py-2"> <p> {{ $todo->title }} </p> <a href="{{'/todos/'.$todo->id.'/edite'}}" class="mx-5 py-1 px-1  bg-orange-400 cursor-pointer text-whithe rounded">Update</a></li>
+    @foreach($todos as $todo)
+   <li class="flex justify-between p-2"> 
+    @if ($todo->completed)
+    <p class="px-4 line-through"> {{ $todo->title }} </p> 
+    @else
+    <p class="px-4 line-througt"> {{ $todo->title }} </p> 
+    @endif
+    <div>
+      
+    <a href="{{'/todos/'.$todo->id.'/edite'}}" class="mx-2 py-1 px-2  
+      text-orange-400 cursor-pointer text-whithe rounded"><span class="fas fa-edit text-orange-400 px-2" px-2></span></a>
+      @if ($todo->completed)
+      <span class="fas fa-check text-green-400" px-2></span>   
+    @else
+    <span class="fas fa-times text-red-500 px-2 cursor-pointer"  
+    onclick="event.preventDefault();
+         
+                document.getElementById('form-complete-{{$todo->id}}') .submit() "/>
+               
+           
+    <form style="display:none" id="{{'form-complete-'.$todo->id}}" method="post" action="{{route('todo.complete',$todo->id)}}">
+        @csrf
+        @method('put')
+    </form>
+    @endif
+    </div>
+</li>
 
-@endforeach
+        
+ @endforeach
+ 
+
+            
 </ul>
 
 

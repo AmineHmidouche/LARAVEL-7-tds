@@ -16,7 +16,7 @@ class TodoController extends Controller
   
 
     public function index(){
-        $todo = Todoo::all();
+        $todo = Todoo::orderBy('completed','desc')->get();
       
         return view('todos.index')->with(['todos'=>$todo]);
     }
@@ -49,6 +49,12 @@ public function update( TodoCreateRequest $request , Todoo $todo){
 //dd($request->all());
 $todo->update(['title' => $request->title]);
 return redirect(route('todo.index'))->with('message','Updated successfuly');
+}
+
+public function complete(Todoo $todo)
+{
+    $todo->update(['completed' => true]);
+    return redirect()->back()->with('message', 'Task Marked as completed!');
 }
 
 }

@@ -63,6 +63,13 @@ public function incomplete(Todoo $todo)
     return redirect()->back()->with('message', 'Task Marked as Incompleted!');
 }
 
+public function delete(Todoo $todo)
+{
+    $todo->delete();
+    return redirect()->back()->with('message', 'Task Marked as Deleted!');
+}
+
+
 }
 
 

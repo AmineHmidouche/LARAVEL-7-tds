@@ -44,7 +44,12 @@ user::uploadAvatar(request()->image);
         $user->save();
         */
 
-        
+          $dataa = [
+            'name'    => 'Elon',
+            'email'   => 'amine@hamouda.com',
+            'password'=> 'password',
+          ];  
+            
         $user = User::all();
         return $user;
         
@@ -52,16 +57,7 @@ user::uploadAvatar(request()->image);
         //User::where('id',12)->delete(); 
         //User::where('id',13)->update(['name'=>'HAmouuuuuuuuuuuuu']);
 
-       /* $dataa = [
-            "name" => "lhassff","email" => "alhadi@gddil.comito", 
-            "password" => "ssssssssssssss", 
-          ];  */
-             
-        $data = [
-            "name" => "dsfuf","email" => "awdsdsd@gdqddil.cozmito", 
-            "password" => "dssuuuudsds", 
-          ];
-        
+      
        // User::create($data);
 
 

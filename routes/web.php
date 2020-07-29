@@ -17,22 +17,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//User Routing Controller
-
-Route::get('/user', 'UserController@HomeUser');
-Route::post('/upload','UserController@UserAvatar');
 
 //ToDolist Routing Controller
-Route::get('/todos/index', 'TodoController@index')->name('todo.index');;
 
+/*
+Route::get('/todos/index', 'TodoController@index')->name('todo.index');;
 Route::get('/todos/create', 'TodoController@create');
 Route::post('/todos/create', 'TodoController@store');
 Route::get('/todos/{todo}/edite', 'TodoController@edit');
 Route::patch('/todos/{todo}/update', 'TodoController@update')->name('todo.update');
+Route::delete('/todos/{todo}/delete', 'TodoController@delete')->name('todo.delete');
+*/
+//Route::middleware('auth')->group(function () {
+Route::resource('/todo', 'TodoController');
 Route::put('/todos/{todo}/complete', 'TodoController@complete')->name('todo.complete');
 Route::delete('/todos/{todo}/incomplete', 'TodoController@incomplete')->name('todo.incomplete');
-Route::delete('/todos/{todo}/delete', 'TodoController@delete')->name('todo.delete');
+//});
 
+
+
+//User Routing Controller
+
+Route::get('/user', 'UserController@HomeUser');
+Route::post('/upload','UserController@UserAvatar');
+Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

@@ -1,6 +1,6 @@
 @if ($todo->completed)
       
-<span  class="fas fa-check text-green-400 cursor-pointer"  
+<span  class="fas fa-check text-green-400 cursor-pointer px-2"  
 onclick="event.preventDefault();
      
             document.getElementById('form-incomplete-{{$todo->id}}') .submit() "/>

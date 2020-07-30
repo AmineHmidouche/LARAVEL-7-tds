@@ -19,7 +19,9 @@
 <div class="py-1">
     <textarea name="description" class="p-2 rounded border" placeholder="Description">{{$todo->description}}</textarea>
 </div>
-
+<div class="py-2">
+    @livewire('edit-step',['steps' => $todo->steps])
+</div>
     <input type="submit" value="Update"  class="py-2 mb-4 px-2 border-rounded">
 
 </form>

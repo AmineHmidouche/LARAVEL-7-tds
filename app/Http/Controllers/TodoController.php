@@ -61,9 +61,20 @@ class TodoController extends Controller
     {
         return view('todos.show', compact('todo'));
     }
-public function update( TodoCreateRequest $request , Todoo $todo){
-//dd($request->all());
-$todo->update(['title' => $request->title , 'description' => $request->description ,'description' => $request->description]);
+public function update( TodoCreateRequest $request , Todoo $todo , Step $step  ){
+
+$todo->update(['title' => $request->title ,'description' => $request->description]);
+if($request->stepName){
+    foreach ($request->stepName as $key => $value ) {
+        $id = $request->stepId[$key];
+        if(!$id){
+            $todo->steps()->create(['name' => $value]);
+        }else{
+            $step = Step::find($id);
+            $step->update(['name' => $value]);
+        }
+    }
+}
 
 return redirect(route('todo.index'))->with('message','Updated successfuly');
 }
